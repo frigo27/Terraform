@@ -1,0 +1,295 @@
+luisfrigo@luisfrigo-System-Product-Name:~/terraform$ terraform apply
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are
+indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # aws_instance.WindowServer2019 will be created
+  + resource "aws_instance" "WindowServer2019" {
+      + ami                                  = "ami-077f1edd46ddb3129"
+      + arn                                  = (known after apply)
+      + associate_public_ip_address          = (known after apply)
+      + availability_zone                    = (known after apply)
+      + cpu_core_count                       = (known after apply)
+      + cpu_threads_per_core                 = (known after apply)
+      + get_password_data                    = false
+      + host_id                              = (known after apply)
+      + id                                   = (known after apply)
+      + instance_initiated_shutdown_behavior = (known after apply)
+      + instance_state                       = (known after apply)
+      + instance_type                        = "t2.micro"
+      + ipv6_address_count                   = (known after apply)
+      + ipv6_addresses                       = (known after apply)
+      + key_name                             = "my-key"
+      + outpost_arn                          = (known after apply)
+      + password_data                        = (known after apply)
+      + placement_group                      = (known after apply)
+      + primary_network_interface_id         = (known after apply)
+      + private_dns                          = (known after apply)
+      + private_ip                           = (known after apply)
+      + public_dns                           = (known after apply)
+      + public_ip                            = (known after apply)
+      + secondary_private_ips                = (known after apply)
+      + security_groups                      = [
+          + "allow_rdp",
+          + "allow_winrm_http",
+          + "allow_winrm_https",
+        ]
+      + source_dest_check                    = true
+      + subnet_id                            = (known after apply)
+      + tags                                 = {
+          + "Name" = "WindowServer2019"
+        }
+      + tags_all                             = {
+          + "Name" = "WindowServer2019"
+        }
+      + tenancy                              = (known after apply)
+      + vpc_security_group_ids               = (known after apply)
+
+      + capacity_reservation_specification {
+          + capacity_reservation_preference = (known after apply)
+
+          + capacity_reservation_target {
+              + capacity_reservation_id = (known after apply)
+            }
+        }
+
+      + ebs_block_device {
+          + delete_on_termination = (known after apply)
+          + device_name           = (known after apply)
+          + encrypted             = (known after apply)
+          + iops                  = (known after apply)
+          + kms_key_id            = (known after apply)
+          + snapshot_id           = (known after apply)
+          + tags                  = (known after apply)
+          + throughput            = (known after apply)
+          + volume_id             = (known after apply)
+          + volume_size           = (known after apply)
+          + volume_type           = (known after apply)
+        }
+
+      + enclave_options {
+          + enabled = (known after apply)
+        }
+
+      + ephemeral_block_device {
+          + device_name  = (known after apply)
+          + no_device    = (known after apply)
+          + virtual_name = (known after apply)
+        }
+
+      + metadata_options {
+          + http_endpoint               = (known after apply)
+          + http_put_response_hop_limit = (known after apply)
+          + http_tokens                 = (known after apply)
+        }
+
+      + network_interface {
+          + delete_on_termination = (known after apply)
+          + device_index          = (known after apply)
+          + network_interface_id  = (known after apply)
+        }
+
+      + root_block_device {
+          + delete_on_termination = (known after apply)
+          + device_name           = (known after apply)
+          + encrypted             = (known after apply)
+          + iops                  = (known after apply)
+          + kms_key_id            = (known after apply)
+          + tags                  = (known after apply)
+          + throughput            = (known after apply)
+          + volume_id             = (known after apply)
+          + volume_size           = (known after apply)
+          + volume_type           = (known after apply)
+        }
+    }
+
+  # aws_key_pair.my-key will be created
+  + resource "aws_key_pair" "my-key" {
+      + arn         = (known after apply)
+      + fingerprint = (known after apply)
+      + id          = (known after apply)
+      + key_name    = "my-key"
+      + key_pair_id = (known after apply)
+      + public_key  = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCogsRnH7/3GrjaIKcZw4Sf9EZ/v3hKjG/2fWTTnLXNieH4Ba9i+rHUYajzB6NzmwASC2Ajs5BUtQJo7GbDqpAnBRzuN5Rym6SiJYBm8pBR1GTI7r/SRCeSLBcfzvwohQuX9+jReiaFSYLv+Lo8kR8wqjjPBOapdd6U/oDjLDvTt22NTpFiGnbqZt/ejqNjjSboTHWPkrQSp0D5/WmPniEO32c0/Ukc6DWifl1aLV5Au/adLU1FuVhy0JSP+4BRVAkx0lLLe1Jwo7oZi2e8mQf/k1aXyzzhe0HMG7MmjbWccuVUhptsw+GxTvjmP7Xoz+Z1KnhJfOfB6l9xTRTSHf4t"
+      + tags_all    = (known after apply)
+    }
+
+  # aws_security_group.allow_rdp will be created
+  + resource "aws_security_group" "allow_rdp" {
+      + arn                    = (known after apply)
+      + description            = "Allow rdp porta 3389"
+      + egress                 = [
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + description      = ""
+              + from_port        = 0
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "-1"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 0
+            },
+        ]
+      + id                     = (known after apply)
+      + ingress                = [
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + description      = "rdp"
+              + from_port        = 3389
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "tcp"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 3389
+            },
+        ]
+      + name                   = "allow_rdp"
+      + name_prefix            = (known after apply)
+      + owner_id               = (known after apply)
+      + revoke_rules_on_delete = false
+      + tags                   = {
+          + "Name" = "allow_rdp"
+        }
+      + tags_all               = {
+          + "Name" = "allow_rdp"
+        }
+      + vpc_id                 = (known after apply)
+    }
+
+  # aws_security_group.allow_winrm_http will be created
+  + resource "aws_security_group" "allow_winrm_http" {
+      + arn                    = (known after apply)
+      + description            = "Allow WinRM porta 5986 http"
+      + egress                 = [
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + description      = ""
+              + from_port        = 0
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "-1"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 0
+            },
+        ]
+      + id                     = (known after apply)
+      + ingress                = [
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + description      = "wimrm"
+              + from_port        = 5986
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "tcp"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 5986
+            },
+        ]
+      + name                   = "allow_winrm_http"
+      + name_prefix            = (known after apply)
+      + owner_id               = (known after apply)
+      + revoke_rules_on_delete = false
+      + tags                   = {
+          + "Name" = "allow_winrm_http"
+        }
+      + tags_all               = {
+          + "Name" = "allow_winrm_http"
+        }
+      + vpc_id                 = (known after apply)
+    }
+
+  # aws_security_group.allow_winrm_https will be created
+  + resource "aws_security_group" "allow_winrm_https" {
+      + arn                    = (known after apply)
+      + description            = "Allow WinRM porta 5986 https"
+      + egress                 = [
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + description      = ""
+              + from_port        = 0
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "-1"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 0
+            },
+        ]
+      + id                     = (known after apply)
+      + ingress                = [
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + description      = "wimrm"
+              + from_port        = 5986
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "tcp"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 5986
+            },
+        ]
+      + name                   = "allow_winrm_https"
+      + name_prefix            = (known after apply)
+      + owner_id               = (known after apply)
+      + revoke_rules_on_delete = false
+      + tags                   = {
+          + "Name" = "allow_winrm_https"
+        }
+      + tags_all               = {
+          + "Name" = "allow_winrm_https"
+        }
+      + vpc_id                 = (known after apply)
+    }
+
+Plan: 5 to add, 0 to change, 0 to destroy.
+
+Changes to Outputs:
+  + WindowServer2019_public_dns = (known after apply)
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+aws_key_pair.my-key: Creating...
+aws_security_group.allow_rdp: Creating...
+aws_security_group.allow_winrm_https: Creating...
+aws_security_group.allow_winrm_http: Creating...
+aws_key_pair.my-key: Creation complete after 2s [id=my-key]
+aws_security_group.allow_winrm_https: Creation complete after 8s [id=sg-09c3a2984db4df574]
+aws_security_group.allow_winrm_http: Creation complete after 8s [id=sg-08754387f5a002cc5]
+aws_security_group.allow_rdp: Creation complete after 8s [id=sg-003ac0bccc0b4f84e]
+aws_instance.WindowServer2019: Creating...
+aws_instance.WindowServer2019: Still creating... [10s elapsed]
+aws_instance.WindowServer2019: Still creating... [20s elapsed]
+aws_instance.WindowServer2019: Still creating... [30s elapsed]
+aws_instance.WindowServer2019: Still creating... [40s elapsed]
+aws_instance.WindowServer2019: Creation complete after 40s [id=i-05b3195bd6829773e]
+
+Apply complete! Resources: 5 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+WindowServer2019_public_dns = "ec2-3-238-185-249.compute-1.amazonaws.com"
+luisfrigo@luisfrigo-System-Product-Name:~/terraform$ cd ans/
