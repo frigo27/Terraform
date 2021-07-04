@@ -1,0 +1,8 @@
+.terraform.lock.hcl
+.terraform/
+ans/ansible.cfg
+aws-key.pub
+my-aws.pub
+my-key.pem
+terraform.tfstate
+terraform.tfstate.backup
