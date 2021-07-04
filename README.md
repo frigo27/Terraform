@@ -1,0 +1,4 @@
+# Terraform
+
+Conhecemos na Unidade 4 como podemos automatizar nossos ambientes de infraestrutura e ainda ter ganhos com agilidade, maior tempo para inovação e redução de custos utilizando Infraestrutura como Código (IaC). Também vimos as principais ferramentas que fazem este papel no mercado e quais as ferramentas que o mercado adotou como maior ganho para utilização no dia a dia.
+Diante de todo este cenário, vamos incluir este passo de IaC em nosso projeto iniciado na unidade 2, onde você criou um ambiente de pipelines automatizado. Neste momento você criará um ambiente em cloud (AWS ou AZURE) e, para que tenhamos o ambiente criado via código conforme desenho abaixo, crie o ambiente proposto utilizando Terraform para provisionamento do ambiente em cloud e a ferramenta Ansible para gerenciamento de configurações a fim de incluir os serviços necessários no servidor.
